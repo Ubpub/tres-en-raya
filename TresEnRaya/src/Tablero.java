@@ -2,9 +2,11 @@ import java.util.HashMap;
 
 public class Tablero {
 
+	//Almacenar los valores del tablero y sus coordenadas
 	private HashMap<String, String> tablero;
 	
 	public Tablero() {
+		//Se inicializa el tablero
 		tablero = new HashMap<String, String>();
 		tablero.put("A1", "_");
 		tablero.put("A2", "_");
@@ -17,6 +19,7 @@ public class Tablero {
 		tablero.put("C3", "_");
 	}
 	
+	//Imprime el tablero
 	public void imprimirTablero() {
 		System.out.println("\n    1   2   3");
 		System.out.println("A | " + tablero.get("A1") + " | " + tablero.get("A2") + " | " + tablero.get("A3") + " |");
@@ -25,10 +28,13 @@ public class Tablero {
 		System.out.println("\n");
 	}
 	
+	//Pone los parámetros posición(clave) y ficha(valor) en el HashMap tablero
+	//sustituyendo los valores anteriores que tuviesen esa clave.
 	public void jugada(String posición, String ficha) {
 		tablero.put(posición, ficha);
 	}
 	
+	//Comprueba si el tablero está lleno o no y devuelve un boolean.
 	public boolean tableroLleno() {
 		boolean lleno = false;
 		if((tablero.get("A1") != "_") && (tablero.get("A2") != "_") && (tablero.get("A3") != "_")) {
@@ -41,6 +47,8 @@ public class Tablero {
 		return lleno;
 	}
 	
+	//Es bastante largo y poco práctico pero no pude hacerlo de otra manera.
+	//Se comprueba las diferentes posibilidades de ganar de cada jugador.
 	public int ganado() {
 		int ganado = 0;
 		if((tablero.get("A1").equals("X")) && (tablero.get("A2").equals("X")) && (tablero.get("A3").equals("X"))) {

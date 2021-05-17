@@ -10,6 +10,8 @@ public class EscritorDeArchivos {
 	private SimpleDateFormat fecha;
 	private SimpleDateFormat fechaEscrita;
 	
+	//Esta clase me ayudó a hacerla Luis, no fui capaz de sacarlo por mi misma, así
+	//que no me la puntues.
 	public EscritorDeArchivos() {
 		fecha = new SimpleDateFormat("ddMMyyy-HHmm");
 		fechaEscrita = new SimpleDateFormat("dd/MM/yyy HH:mm:ss");
