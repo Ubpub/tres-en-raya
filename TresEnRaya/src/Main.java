@@ -11,10 +11,12 @@ public class Main {
 	private static int num2;
 	private static String primero;
 	private static String segundo;
+	private static EscritorDeArchivos log;
 	
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+		log = new EscritorDeArchivos();
 		jugador1 = new Jugador();
 		jugador2 = new Jugador();
 		dado = new Dados();
@@ -24,15 +26,19 @@ public class Main {
 		System.out.print("Jugador 2: ");
 		jugador2.setNombre(sc.next());
 		System.out.println("Van a jugar " + jugador1.getNombre() + " y " + jugador2.getNombre());
+		log.escribirFichero("Van a jugar " + jugador1.getNombre() + " y " + jugador2.getNombre());
 		
 		do {
 			num1 = dado.tirarDados();
 			num2 = dado.tirarDados();
 			System.out.println(jugador1.getNombre() + " ha tirado el dado y ha sacado un " + num1);
+			log.escribirFichero(jugador1.getNombre() + " ha tirado el dado y ha sacado un " + num1);
 			System.out.println(jugador2.getNombre() + " ha tirado el dado y ha sacado un " + num2);
+			log.escribirFichero(jugador2.getNombre() + " ha tirado el dado y ha sacado un " + num2);
 			if(num1 > num2) {
 				jugador1.setPrimero(true);
 				System.out.println(jugador1.getNombre() + " va a tirar primero");
+				log.escribirFichero(jugador1.getNombre() + " va a tirar primero");
 				noEmpate = true;
 				jugador1.setFicha("X");
 				jugador2.setFicha("O");
@@ -42,6 +48,7 @@ public class Main {
 			else if(num2 > num1) {
 				jugador2.setPrimero(true);;
 				System.out.println(jugador2.getNombre() + " va a tirar primero");
+				log.escribirFichero(jugador2.getNombre() + " va a tirar primero");
 				noEmpate = true;
 				primero = jugador2.getNombre();
 				segundo = jugador1.getNombre();
@@ -50,6 +57,7 @@ public class Main {
 			}
 			else {
 				System.out.println("Empate. Vuelven a tirar.");
+				log.escribirFichero("Ha quedado empate. Vuelven a tirar");
 			}
 		}while(!noEmpate);
 		
@@ -67,6 +75,7 @@ public class Main {
 			if(num1 > num2) {
 				System.out.print("Escribe la posición, " + jugador1.getNombre() + " : ");
 				posicion = sc.next().toUpperCase();
+				log.escribirFichero(jugador1.getNombre() + " ha escrito la posición " + posicion);
 				tablero.jugada(posicion, jugador1.getFicha());
 				num1 = 0;
 				num2 = 1;
@@ -74,6 +83,7 @@ public class Main {
 			else {
 				System.out.print("Escribe la posición, " + jugador2.getNombre() + " : ");
 				posicion = sc.next().toUpperCase();
+				log.escribirFichero(jugador2.getNombre() + " ha escrito la posición " + posicion);
 				tablero.jugada(posicion, jugador2.getFicha());
 				num2 = 0;
 				num1 = 1;
@@ -93,9 +103,11 @@ public class Main {
 		} while(!terminado);
 		if(tablero.ganado() == 0) {
 			System.out.println("Ha habido un empate");
+			log.escribirFichero("Ha habido un empate");
 		}
 		else {
 			System.out.println("Ha ganado " + ganador);
+			log.escribirFichero("Ha ganado " + ganador);
 		}
 		System.out.println("Juego terminado.");
 	}

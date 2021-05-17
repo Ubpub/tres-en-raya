@@ -1,0 +1,12 @@
+17/05/2021 20:25:41 Van a jugar Vanesa y Elena
+17/05/2021 20:25:41 Vanesa ha tirado el dado y ha sacado un 2
+17/05/2021 20:25:41 Elena ha tirado el dado y ha sacado un 1
+17/05/2021 20:25:41 Vanesa va a tirar primero
+17/05/2021 20:25:44 Vanesa ha escrito la posición A1
+17/05/2021 20:25:46 Elena ha escrito la posición B2
+17/05/2021 20:25:50 Vanesa ha escrito la posición C3
+17/05/2021 20:25:53 Elena ha escrito la posición C1
+17/05/2021 20:25:58 Vanesa ha escrito la posición A3
+17/05/2021 20:26:50 Elena ha escrito la posición A2
+17/05/2021 20:26:54 Vanesa ha escrito la posición B3
+17/05/2021 20:26:54 Ha ganado Vanesa
